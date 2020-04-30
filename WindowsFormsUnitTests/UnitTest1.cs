@@ -22,7 +22,7 @@ namespace WindowsFormsUnitTests
         [TestMethod]
         public void ReturnsFive()
         {
-            Form2 form2 = new Form2();
+            DeckListForm form2 = new DeckListForm();
             Assert.AreEqual(5, form2.returnFive());
         }
     }

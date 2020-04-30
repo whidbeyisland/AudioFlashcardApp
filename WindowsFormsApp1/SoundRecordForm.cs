@@ -19,7 +19,7 @@ using Data = Google.Apis.Sheets.v4.Data;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form4 : Form
+    public partial class SoundRecordForm : Form
     {
         string frontSoundGuid;
         string backSoundGuid;
@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         string deckToEdit2;
         string cardName;
 
-        public Form4(string deckToEdit)
+        public SoundRecordForm(string deckToEdit)
         {
             deckToEdit2 = "";
             InitializeComponent();

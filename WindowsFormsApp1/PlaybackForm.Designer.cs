@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form5
+    partial class PlaybackForm
     {
         /// <summary>
         /// Required designer variable.

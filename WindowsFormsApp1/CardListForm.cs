@@ -20,7 +20,7 @@ using Google.Apis.Sheets.v4.Data;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form3 : Form
+    public partial class CardListForm : Form
     {
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
         static string ApplicationName = "Google Sheets API .NET Quickstart";
@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         string cardToEdit2;
         string cardToEdit2Name;
 
-        public Form3(string deckToEdit, string deckToEditName)
+        public CardListForm(string deckToEdit, string deckToEditName)
         {
             deckToEdit2 = "";
             deckToEdit2Name = "";
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
 
         private void AddNewCardButton_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4(deckToEdit2);
+            SoundRecordForm form4 = new SoundRecordForm(deckToEdit2);
             form4.ShowDialog();
         }
 
@@ -177,7 +177,7 @@ namespace WindowsFormsApp1
 
         private void StudyDeckButton_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5(deckToEdit2);
+            PlaybackForm form5 = new PlaybackForm(deckToEdit2);
             form5.ShowDialog();
         }
 

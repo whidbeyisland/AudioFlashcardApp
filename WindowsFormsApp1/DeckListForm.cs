@@ -17,14 +17,14 @@ using Google.Cloud.Storage.V1;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form2 : Form
+    public partial class DeckListForm : Form
     {
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
         static string ApplicationName = "Google Sheets API .NET Quickstart";
         string deckToEdit2;
         string deckToEdit2Name;
 
-        public Form2()
+        public DeckListForm()
         {
             InitializeComponent();
             UpdateDeckList();
@@ -232,7 +232,7 @@ namespace WindowsFormsApp1
         {
             if (deckToEdit2 != "")
             {
-                Form3 form3 = new Form3(deckToEdit2, deckToEdit2Name);
+                CardListForm form3 = new CardListForm(deckToEdit2, deckToEdit2Name);
                 form3.ShowDialog();
             }
         }

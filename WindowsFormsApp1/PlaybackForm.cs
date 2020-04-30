@@ -21,7 +21,7 @@ using NAudio.Wave.SampleProviders;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form5 : Form
+    public partial class PlaybackForm : Form
     {
         public WaveOutEvent waveOut;
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
         public bool playInReverse;
         public int speedScrollPos;
 
-        public Form5(string deckToEdit)
+        public PlaybackForm(string deckToEdit)
         {
             waveOut = new WaveOutEvent();
             deckToEdit2 = "";
