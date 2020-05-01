@@ -177,32 +177,6 @@ namespace WindowsFormsApp1
             response.MajorDimension = "COLUMNS";
 
             return values;
-
-            /*
-            response.MajorDimension = "COLUMNS";
-            if (values != null && values.Count > 0)
-            {
-                List<string[]> hiddenCardList = new List<string[]>();
-
-                foreach (var row in values)
-                {
-                    //Console.WriteLine("{0} {1}", row[0], row[1]);
-
-                    //update datagrid with what it finds
-                    if (row[1].ToString() == deckToEdit2)
-                    {
-                        hiddenCardList.Add(new string[] { row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString() });
-                    }
-                }
-
-                DataTable table = ConvertListToDataTable(hiddenCardList);
-                dataGridView1.DataSource = table;
-            }
-            else
-            {
-                Console.WriteLine("No data found.");
-            }
-            */
         }
 
         private static UserCredential GetCredential()

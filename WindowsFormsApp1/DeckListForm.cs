@@ -110,15 +110,6 @@ namespace WindowsFormsApp1
                         {
                             hiddenDeckList.Add(new string[] { row[0].ToString(), row[1].ToString(), row[4].ToString(), row[5].ToString() });
                         }
-                        /*
-                        try
-                        {
-                            hiddenDeckList.Add(new string[] { row[0].ToString(), row[1].ToString(), row[4].ToString(), row[5].ToString() });
-                        } catch
-                        {
-
-                        }
-                        */
                     }
 
                     DataTable table = ConvertListToDataTable(hiddenDeckList);

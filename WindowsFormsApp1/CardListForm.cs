@@ -278,32 +278,6 @@ namespace WindowsFormsApp1
                 _batchUpdateSpreadsheetRequest.Requests = deleteRequestsList;
                 service.Spreadsheets.BatchUpdate(_batchUpdateSpreadsheetRequest, spreadsheetId).Execute();
 
-                /*
-                // How the input data should be interpreted.
-                SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum valueInputOption = (SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum)2;  // TODO: Update placeholder value.
-
-                // How the input data should be inserted.
-                SpreadsheetsResource.ValuesResource.AppendRequest.InsertDataOptionEnum insertDataOption = (SpreadsheetsResource.ValuesResource.AppendRequest.InsertDataOptionEnum)1;  // TODO: Update placeholder value.
-
-                // TODO: Assign values to desired properties of `requestBody`:
-                Data.ValueRange requestBody = new Data.ValueRange();
-                var oblist = new List<object>() { Guid.NewGuid(), cardName, deckToEdit2, frontSoundGuid, backSoundGuid, DateTime.Now, DateTime.Now };
-                requestBody.Values = new List<IList<object>> { oblist };
-                requestBody.MajorDimension = "ROWS";
-
-                SpreadsheetsResource.ValuesResource.AppendRequest request = sheetsService.Spreadsheets.Values.Append(requestBody, spreadsheetId, range);
-                request.ValueInputOption = valueInputOption;
-                request.InsertDataOption = insertDataOption;
-                */
-
-                // To execute asynchronously in an async method, replace `request.Execute()` as shown:
-                //Data.AppendValuesResponse delResponse = delRequest.Execute();
-                // Data.AppendValuesResponse response = await request.ExecuteAsync();
-
-                // TODO: Change code below to process the `response` object:
-                //testLabel2.Text = JsonConvert.SerializeObject(delResponse);
-                //Console.WriteLine(JsonConvert.SerializeObject(response));
-
                 //THIRD: delete the files in the user's folder with the Guids frontGuidToDelete and backGuidToDelete
                 File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", frontGuidToDelete));
                 File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", backGuidToDelete));
