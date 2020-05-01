@@ -238,9 +238,6 @@ namespace WindowsFormsApp1
             // Your Google Cloud Platform project ID.
             string projectId = "single-clock-264421";
 
-            // You have to set the variable manually each time
-            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", @"C:\GoogleCloudFiles\single-clock-264421-edfc58757462.json");
-
             //find mp3 files in directory
             string targetdirectory = @"C:\Users\davis\Desktop\NAudio\";
             string[] mp3Files = Directory.GetFiles(targetdirectory);
@@ -276,9 +273,6 @@ namespace WindowsFormsApp1
         {
             // Your Google Cloud Platform project ID.
             string projectId = "single-clock-264421";
-
-            // You have to set the variable manually each time
-            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", @"C:\GoogleCloudFiles\single-clock-264421-edfc58757462.json");
 
             //download files
             var storage = StorageClient.Create();

@@ -67,11 +67,6 @@ namespace WindowsFormsApp1
 
         private void PlayDeck()
         {
-            /*
-            waveOut.Init(waveReader);
-            waveOut.Play();
-            */
-
             //create a 2D array of strings containing one row for each row in the table,
             //each containing the front and back WAV file names for that row
             IList<IList<Object>> wavFileNamesInit = WavFileNames();
@@ -123,16 +118,6 @@ namespace WindowsFormsApp1
             }
             testLabel2.Text = chain;
 
-            /*
-            testLabel2.Text = WavFileNames()[0][2].ToString();
-            string frontGuid = WavFileNames()[0][2].ToString();
-            */
-            //waveReader = new WaveFileReader(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", frontGuid));
-            /*
-            var fileReader = new AudioFileReader(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", frontGuid));
-            var fileReader2 = new AudioFileReader(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", frontGuid));
-            var fileReaderConcat = fileReader.FollowedBy(fileReader2);
-            */
             waveOut.Init(fileReaderConcat);
             waveOut.Play();
         }
