@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
         public WaveInEvent waveIn;
         public WaveFileWriter writer;
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static string ApplicationName = "Google Sheets API .NET Quickstart";
+        static string ApplicationName = "Flashchords";
         string deckToEdit2;
         string cardName;
 

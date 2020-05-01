@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
     {
         public WaveOutEvent waveOut;
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static string ApplicationName = "Google Sheets API .NET Quickstart";
+        static string ApplicationName = "Flashchords";
         string deckToEdit2;
         public WaveFileReader waveReader;
         public List<AudioFileReader> fileReaderList;

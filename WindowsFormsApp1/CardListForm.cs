@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
     public partial class CardListForm : Form
     {
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static string ApplicationName = "Google Sheets API .NET Quickstart";
+        static string ApplicationName = "Flashchords";
 
         string deckToEdit2;
         string deckToEdit2Name;
