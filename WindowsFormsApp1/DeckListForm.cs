@@ -160,7 +160,6 @@ namespace WindowsFormsApp1
 
             // TODO: Change code below to process the `response` object:
             testLabel.Text = JsonConvert.SerializeObject(response);
-            //Console.WriteLine(JsonConvert.SerializeObject(response));
         }
 
         private static UserCredential GetCredential()

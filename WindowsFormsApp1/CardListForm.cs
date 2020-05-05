@@ -104,8 +104,6 @@ namespace WindowsFormsApp1
 
                 foreach (var row in values)
                 {
-                    //Console.WriteLine("{0} {1}", row[0], row[1]);
-
                     //update datagrid with what it finds
                     if (row[2].ToString() == deckToEdit2)
                     {
@@ -236,8 +234,6 @@ namespace WindowsFormsApp1
 
                     foreach (var row in values)
                     {
-                        //Console.WriteLine("{0} {1}", row[0], row[1]);
-
                         //update datagrid with what it finds
                         if (row[2].ToString() == deckToEdit2)
                         {

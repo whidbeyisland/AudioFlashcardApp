@@ -57,8 +57,6 @@ namespace WindowsFormsApp1
 
             writer = null;
 
-            bool closing = false;
-
             writer = new WaveFileWriter(outputFilePath, waveIn.WaveFormat);
             waveIn.StartRecording();
             FrontRecordButton.Enabled = false;
@@ -110,8 +108,6 @@ namespace WindowsFormsApp1
             waveIn = new WaveInEvent();
 
             writer = null;
-
-            bool closing = false;
 
             writer = new WaveFileWriter(outputFilePath, waveIn.WaveFormat);
             waveIn.StartRecording();
@@ -202,11 +198,9 @@ namespace WindowsFormsApp1
 
             // To execute asynchronously in an async method, replace `request.Execute()` as shown:
             Data.AppendValuesResponse response = request.Execute();
-            // Data.AppendValuesResponse response = await request.ExecuteAsync();
 
             // TODO: Change code below to process the `response` object:
             testLabel.Text = JsonConvert.SerializeObject(response);
-            //Console.WriteLine(JsonConvert.SerializeObject(response));
         }
 
         private static UserCredential GetCredential()
@@ -235,8 +229,6 @@ namespace WindowsFormsApp1
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            // Code
-            //closing = true;
             try
             {
                 waveIn.StopRecording();
