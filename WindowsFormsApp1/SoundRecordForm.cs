@@ -57,6 +57,8 @@ namespace WindowsFormsApp1
 
             writer = null;
 
+            bool closing = false;
+
             writer = new WaveFileWriter(outputFilePath, waveIn.WaveFormat);
             waveIn.StartRecording();
             FrontRecordButton.Enabled = false;
@@ -108,6 +110,8 @@ namespace WindowsFormsApp1
             waveIn = new WaveInEvent();
 
             writer = null;
+
+            bool closing = false;
 
             writer = new WaveFileWriter(outputFilePath, waveIn.WaveFormat);
             waveIn.StartRecording();
@@ -231,6 +235,8 @@ namespace WindowsFormsApp1
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
+            // Code
+            //closing = true;
             try
             {
                 waveIn.StopRecording();
