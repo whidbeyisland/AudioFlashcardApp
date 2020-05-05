@@ -94,7 +94,6 @@ namespace WindowsFormsApp1
             try
             {
                 Data.ValueRange response = request.Execute();
-                // mightbeerrorhere
                 IList<IList<System.Object>> values = response.Values;
                 response.MajorDimension = "COLUMNS";
                 if (values != null && values.Count > 0)
@@ -103,8 +102,6 @@ namespace WindowsFormsApp1
 
                     foreach (var row in values)
                     {
-                        //Console.WriteLine("{0} {1}", row[0], row[1]);
-
                         //update datagrid with what it finds
                         if (row.Count > 0)
                         {
@@ -235,13 +232,9 @@ namespace WindowsFormsApp1
 
         private void SyncFiles()
         {
-            // Your Google Cloud Platform project ID.
-            string projectId = "single-clock-264421";
-
             //find mp3 files in directory
             string targetdirectory = @"C:\Users\davis\Desktop\NAudio\";
             string[] mp3Files = Directory.GetFiles(targetdirectory);
-            string growingPath = "";
             foreach(string mp3File in mp3Files)
             {
                 if (mp3File.Contains(".wav"))
@@ -271,14 +264,8 @@ namespace WindowsFormsApp1
 
         private void RestoreFromCloud()
         {
-            // Your Google Cloud Platform project ID.
-            string projectId = "single-clock-264421";
-
             //download files
             var storage = StorageClient.Create();
-            //List<Google.Apis.Storage.v1.Data.Object> listOfFiles = storage.ListObjects("audioflashcardbucket1", "").ToList();
-            //testLabel2.Text = listOfFiles.Count.ToString();
-            
             foreach (var storageObject in storage.ListObjects("audioflashcardbucket1", ""))
             {
                 DownloadObject("audioflashcardbucket1", storageObject.Name, storageObject.Name);
