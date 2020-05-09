@@ -37,7 +37,6 @@ namespace WindowsFormsApp1
             cardToEdit2 = "";
             cardToEdit2Name = "";
             InitializeComponent();
-            myTestLabel.Text = deckToEditName;
             deckToEdit2 = deckToEdit;
             UpdateCardList();
 
@@ -53,11 +52,6 @@ namespace WindowsFormsApp1
         {
             SoundRecordForm form4 = new SoundRecordForm(deckToEdit2);
             form4.ShowDialog();
-        }
-
-        private void myTestLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void UpdateCardList()
@@ -289,12 +283,11 @@ namespace WindowsFormsApp1
 
             cardToEdit2 = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             cardToEdit2Name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            testLabel2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
-        private void testButton_Click(object sender, EventArgs e)
+        private void EditCardButton_Click(object sender, EventArgs e)
         {
-            File.Delete(@"C:\Users\davis\Desktop\NAudio\pumpkin.txt");
+
         }
     }
 }

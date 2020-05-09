@@ -40,12 +40,10 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //testLabel2.Text = e.RowIndex.ToString();
             AddCardsButton.Enabled = true;
 
             deckToEdit2 = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             deckToEdit2Name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            testLabel2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
         private void DeckCreateButton_Click(object sender, EventArgs e)
@@ -53,7 +51,7 @@ namespace WindowsFormsApp1
             //add deck to google sheet, with name entered, created date, and modified date
             AddNewDeck(newDeckTextBox.Text);
 
-            //UpdateDeckList();
+            UpdateDeckList();
         }
 
         private void UpdateDeckList()
@@ -156,10 +154,6 @@ namespace WindowsFormsApp1
 
             // To execute asynchronously in an async method, replace `request.Execute()` as shown:
             Data.AppendValuesResponse response = request.Execute();
-            // Data.AppendValuesResponse response = await request.ExecuteAsync();
-
-            // TODO: Change code below to process the `response` object:
-            testLabel.Text = JsonConvert.SerializeObject(response);
         }
 
         private static UserCredential GetCredential()
@@ -281,6 +275,16 @@ namespace WindowsFormsApp1
                 storage.DownloadObject(bucketName, objectName, outputFile);
             }
             Console.WriteLine($"downloaded {objectName} to {localPath}.");
+        }
+
+        private void testLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
