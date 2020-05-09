@@ -37,6 +37,9 @@
 			this.restoreFromCloudButton = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.renameButton = new System.Windows.Forms.Button();
+			this.deckNameBox = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -80,7 +83,7 @@
 			// 
 			// AddCardsButton
 			// 
-			this.AddCardsButton.Location = new System.Drawing.Point(321, 339);
+			this.AddCardsButton.Location = new System.Drawing.Point(124, 335);
 			this.AddCardsButton.Name = "AddCardsButton";
 			this.AddCardsButton.Size = new System.Drawing.Size(173, 23);
 			this.AddCardsButton.TabIndex = 5;
@@ -90,7 +93,7 @@
 			// 
 			// SyncButton
 			// 
-			this.SyncButton.Location = new System.Drawing.Point(285, 402);
+			this.SyncButton.Location = new System.Drawing.Point(253, 415);
 			this.SyncButton.Name = "SyncButton";
 			this.SyncButton.Size = new System.Drawing.Size(109, 23);
 			this.SyncButton.TabIndex = 7;
@@ -100,7 +103,7 @@
 			// 
 			// restoreFromCloudButton
 			// 
-			this.restoreFromCloudButton.Location = new System.Drawing.Point(410, 402);
+			this.restoreFromCloudButton.Location = new System.Drawing.Point(408, 415);
 			this.restoreFromCloudButton.Name = "restoreFromCloudButton";
 			this.restoreFromCloudButton.Size = new System.Drawing.Size(168, 23);
 			this.restoreFromCloudButton.TabIndex = 8;
@@ -126,11 +129,39 @@
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Edit Existing Deck";
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(366, 338);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(97, 17);
+			this.label4.TabIndex = 11;
+			this.label4.Text = "Rename Deck";
+			// 
+			// renameButton
+			// 
+			this.renameButton.Location = new System.Drawing.Point(647, 335);
+			this.renameButton.Name = "renameButton";
+			this.renameButton.Size = new System.Drawing.Size(75, 23);
+			this.renameButton.TabIndex = 12;
+			this.renameButton.Text = "Rename";
+			this.renameButton.UseVisualStyleBackColor = true;
+			// 
+			// deckNameBox
+			// 
+			this.deckNameBox.Location = new System.Drawing.Point(469, 336);
+			this.deckNameBox.Name = "deckNameBox";
+			this.deckNameBox.Size = new System.Drawing.Size(162, 22);
+			this.deckNameBox.TabIndex = 13;
+			// 
 			// DeckListForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.deckNameBox);
+			this.Controls.Add(this.renameButton);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.restoreFromCloudButton);
@@ -160,5 +191,8 @@
         private System.Windows.Forms.Button restoreFromCloudButton;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button renameButton;
+		private System.Windows.Forms.TextBox deckNameBox;
 	}
 }
