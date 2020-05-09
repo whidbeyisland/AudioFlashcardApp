@@ -37,6 +37,7 @@ namespace WindowsFormsApp1
             waveOut = new WaveOutEvent();
             deckToEdit2 = "";
             InitializeComponent();
+            this.Text = "Review";
             deckToEdit2 = deckToEdit;
             testLabel.Text = deckToEdit;
             fileReaderList = new List<AudioFileReader>();
@@ -200,6 +201,11 @@ namespace WindowsFormsApp1
         private void SpeedControl_Scroll(object sender, EventArgs e)
         {
             speedScrollPos = SpeedControl.Value;
+        }
+
+        private void testLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

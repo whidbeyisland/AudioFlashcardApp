@@ -37,6 +37,7 @@ namespace WindowsFormsApp1
             cardToEdit2 = "";
             cardToEdit2Name = "";
             InitializeComponent();
+            this.Text = "Cards";
             deckToEdit2 = deckToEdit;
             UpdateCardList();
 

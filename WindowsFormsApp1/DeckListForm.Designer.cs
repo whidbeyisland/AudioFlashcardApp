@@ -141,6 +141,7 @@
 			this.Controls.Add(this.dataGridView1);
 			this.Name = "DeckListForm";
 			this.Text = "Form2";
+			this.Load += new System.EventHandler(this.DeckListForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

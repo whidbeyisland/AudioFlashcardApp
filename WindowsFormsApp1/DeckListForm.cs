@@ -27,15 +27,11 @@ namespace WindowsFormsApp1
         public DeckListForm()
         {
             InitializeComponent();
+            this.Text = "Flashchords";
             UpdateDeckList();
             deckToEdit2 = "";
             deckToEdit2Name = "";
             AddCardsButton.Enabled = false;
-        }
-
-        public int returnFive()
-        {
-            return 5;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -283,6 +279,11 @@ namespace WindowsFormsApp1
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DeckListForm_Load(object sender, EventArgs e)
         {
 
         }

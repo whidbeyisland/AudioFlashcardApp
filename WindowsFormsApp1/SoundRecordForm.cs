@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
         {
             deckToEdit2 = "";
             InitializeComponent();
+            this.Text = "Record";
             frontSoundGuid = "";
             backSoundGuid = "";
             deckToEdit2 = deckToEdit;
@@ -236,6 +237,11 @@ namespace WindowsFormsApp1
             {
 
             }
+        }
+
+        private void SoundRecordForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
