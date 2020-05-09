@@ -287,5 +287,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void newDeckTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -67,6 +67,7 @@
 			this.newDeckTextBox.Name = "newDeckTextBox";
 			this.newDeckTextBox.Size = new System.Drawing.Size(159, 22);
 			this.newDeckTextBox.TabIndex = 2;
+			this.newDeckTextBox.TextChanged += new System.EventHandler(this.newDeckTextBox_TextChanged);
 			// 
 			// label1
 			// 
