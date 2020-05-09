@@ -228,7 +228,10 @@ namespace WindowsFormsApp1
             base.OnFormClosing(e);
             try
             {
-                waveIn.StopRecording();
+                if (waveIn != null)
+                {
+                    waveIn.StopRecording();
+                }
             } catch
             {
 

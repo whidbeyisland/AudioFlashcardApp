@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace WindowsFormsApp1
 {
 	public partial class CardEditForm : Form
 	{
+		public WaveInEvent waveIn;
+
 		public CardEditForm()
 		{
 			InitializeComponent();
@@ -21,6 +24,22 @@ namespace WindowsFormsApp1
 		private void CardEditForm_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		protected override void OnFormClosing(FormClosingEventArgs e)
+		{
+			base.OnFormClosing(e);
+			try
+			{
+				if (waveIn != null)
+				{
+					waveIn.StopRecording();
+				}
+			}
+			catch
+			{
+
+			}
 		}
 
 		private void cardDiscardButton_Click(object sender, EventArgs e)
