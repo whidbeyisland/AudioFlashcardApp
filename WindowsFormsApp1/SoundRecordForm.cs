@@ -38,7 +38,6 @@ namespace WindowsFormsApp1
             frontSoundGuid = "";
             backSoundGuid = "";
             deckToEdit2 = deckToEdit;
-            testLabel.Text = deckToEdit;
             cardName = ".";
 
             FrontStopButton.Enabled = false;
@@ -199,9 +198,6 @@ namespace WindowsFormsApp1
 
             // To execute asynchronously in an async method, replace `request.Execute()` as shown:
             Data.AppendValuesResponse response = request.Execute();
-
-            // TODO: Change code below to process the `response` object:
-            testLabel.Text = JsonConvert.SerializeObject(response);
         }
 
         private static UserCredential GetCredential()
@@ -240,6 +236,11 @@ namespace WindowsFormsApp1
         }
 
         private void SoundRecordForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void testLabel_Click(object sender, EventArgs e)
         {
 
         }

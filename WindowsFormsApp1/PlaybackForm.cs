@@ -39,7 +39,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.Text = "Review";
             deckToEdit2 = deckToEdit;
-            testLabel.Text = deckToEdit;
             fileReaderList = new List<AudioFileReader>();
             playInReverse = false;
             speedScrollPos = 0;
@@ -204,6 +203,11 @@ namespace WindowsFormsApp1
         }
 
         private void testLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void testLabel2_Click(object sender, EventArgs e)
         {
 
         }
