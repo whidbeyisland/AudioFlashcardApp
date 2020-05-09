@@ -119,22 +119,10 @@ namespace WindowsFormsApp1
         {
             // New table.
             DataTable table = new DataTable();
-
-            // Get max columns.
-            int columns = 0;
-            foreach (var array in list)
-            {
-                if (array.Length > columns)
-                {
-                    columns = array.Length;
-                }
-            }
-
-            // Add columns.
-            for (int i = 0; i < columns; i++)
-            {
-                table.Columns.Add();
-            }
+            table.Columns.Add(new DataColumn("Id"));
+            table.Columns.Add(new DataColumn("Card Name"));
+            table.Columns.Add(new DataColumn("Created Date"));
+            table.Columns.Add(new DataColumn("Updated Date"));
 
             // Add rows.
             foreach (var array in list)
