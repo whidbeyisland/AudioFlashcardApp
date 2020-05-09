@@ -38,11 +38,12 @@
 			this.cardNameField = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.closeButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// SaveCardButton
 			// 
-			this.SaveCardButton.Location = new System.Drawing.Point(368, 375);
+			this.SaveCardButton.Location = new System.Drawing.Point(279, 380);
 			this.SaveCardButton.Name = "SaveCardButton";
 			this.SaveCardButton.Size = new System.Drawing.Size(75, 23);
 			this.SaveCardButton.TabIndex = 0;
@@ -133,11 +134,22 @@
 			this.label4.TabIndex = 10;
 			this.label4.Text = "Create a new card";
 			// 
+			// closeButton
+			// 
+			this.closeButton.Location = new System.Drawing.Point(441, 380);
+			this.closeButton.Name = "closeButton";
+			this.closeButton.Size = new System.Drawing.Size(75, 23);
+			this.closeButton.TabIndex = 11;
+			this.closeButton.Text = "Cancel";
+			this.closeButton.UseVisualStyleBackColor = true;
+			this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+			// 
 			// SoundRecordForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.closeButton);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.cardNameField);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.TextBox cardNameField;
         private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button closeButton;
 	}
 }

@@ -244,5 +244,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
