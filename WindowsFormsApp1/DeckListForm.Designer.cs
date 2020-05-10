@@ -146,6 +146,7 @@
 			this.renameButton.TabIndex = 12;
 			this.renameButton.Text = "Rename";
 			this.renameButton.UseVisualStyleBackColor = true;
+			this.renameButton.Click += new System.EventHandler(this.renameButton_Click);
 			// 
 			// deckNameBox
 			// 
@@ -153,6 +154,7 @@
 			this.deckNameBox.Name = "deckNameBox";
 			this.deckNameBox.Size = new System.Drawing.Size(162, 22);
 			this.deckNameBox.TabIndex = 13;
+			this.deckNameBox.TextChanged += new System.EventHandler(this.deckNameBox_TextChanged);
 			// 
 			// DeckListForm
 			// 
