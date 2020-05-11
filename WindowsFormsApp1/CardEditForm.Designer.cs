@@ -35,6 +35,12 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.cardSaveButton = new System.Windows.Forms.Button();
 			this.cardDiscardButton = new System.Windows.Forms.Button();
+			this.frontRecordButton = new System.Windows.Forms.Button();
+			this.frontStopButton = new System.Windows.Forms.Button();
+			this.frontPlayButton = new System.Windows.Forms.Button();
+			this.backRecordButton = new System.Windows.Forms.Button();
+			this.backStopButton = new System.Windows.Forms.Button();
+			this.backPlayButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -99,11 +105,71 @@
 			this.cardDiscardButton.UseVisualStyleBackColor = true;
 			this.cardDiscardButton.Click += new System.EventHandler(this.cardDiscardButton_Click);
 			// 
+			// frontRecordButton
+			// 
+			this.frontRecordButton.Location = new System.Drawing.Point(275, 124);
+			this.frontRecordButton.Name = "frontRecordButton";
+			this.frontRecordButton.Size = new System.Drawing.Size(75, 23);
+			this.frontRecordButton.TabIndex = 7;
+			this.frontRecordButton.Text = "Record";
+			this.frontRecordButton.UseVisualStyleBackColor = true;
+			// 
+			// frontStopButton
+			// 
+			this.frontStopButton.Location = new System.Drawing.Point(418, 123);
+			this.frontStopButton.Name = "frontStopButton";
+			this.frontStopButton.Size = new System.Drawing.Size(75, 23);
+			this.frontStopButton.TabIndex = 8;
+			this.frontStopButton.Text = "Stop";
+			this.frontStopButton.UseVisualStyleBackColor = true;
+			// 
+			// frontPlayButton
+			// 
+			this.frontPlayButton.Location = new System.Drawing.Point(569, 124);
+			this.frontPlayButton.Name = "frontPlayButton";
+			this.frontPlayButton.Size = new System.Drawing.Size(75, 23);
+			this.frontPlayButton.TabIndex = 9;
+			this.frontPlayButton.Text = "Play";
+			this.frontPlayButton.UseVisualStyleBackColor = true;
+			// 
+			// backRecordButton
+			// 
+			this.backRecordButton.Location = new System.Drawing.Point(275, 225);
+			this.backRecordButton.Name = "backRecordButton";
+			this.backRecordButton.Size = new System.Drawing.Size(75, 23);
+			this.backRecordButton.TabIndex = 10;
+			this.backRecordButton.Text = "Record";
+			this.backRecordButton.UseVisualStyleBackColor = true;
+			// 
+			// backStopButton
+			// 
+			this.backStopButton.Location = new System.Drawing.Point(418, 225);
+			this.backStopButton.Name = "backStopButton";
+			this.backStopButton.Size = new System.Drawing.Size(75, 23);
+			this.backStopButton.TabIndex = 11;
+			this.backStopButton.Text = "Stop";
+			this.backStopButton.UseVisualStyleBackColor = true;
+			// 
+			// backPlayButton
+			// 
+			this.backPlayButton.Location = new System.Drawing.Point(569, 225);
+			this.backPlayButton.Name = "backPlayButton";
+			this.backPlayButton.Size = new System.Drawing.Size(75, 23);
+			this.backPlayButton.TabIndex = 12;
+			this.backPlayButton.Text = "Play";
+			this.backPlayButton.UseVisualStyleBackColor = true;
+			// 
 			// CardEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.backPlayButton);
+			this.Controls.Add(this.backStopButton);
+			this.Controls.Add(this.backRecordButton);
+			this.Controls.Add(this.frontPlayButton);
+			this.Controls.Add(this.frontStopButton);
+			this.Controls.Add(this.frontRecordButton);
 			this.Controls.Add(this.cardDiscardButton);
 			this.Controls.Add(this.cardSaveButton);
 			this.Controls.Add(this.textBox1);
@@ -128,5 +194,11 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button cardSaveButton;
 		private System.Windows.Forms.Button cardDiscardButton;
+		private System.Windows.Forms.Button frontRecordButton;
+		private System.Windows.Forms.Button frontStopButton;
+		private System.Windows.Forms.Button frontPlayButton;
+		private System.Windows.Forms.Button backRecordButton;
+		private System.Windows.Forms.Button backStopButton;
+		private System.Windows.Forms.Button backPlayButton;
 	}
 }

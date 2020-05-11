@@ -39,6 +39,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.closeButton = new System.Windows.Forms.Button();
+			this.frontPlayButton = new System.Windows.Forms.Button();
+			this.backPlayButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// SaveCardButton
@@ -63,7 +65,7 @@
 			// 
 			// FrontStopButton
 			// 
-			this.FrontStopButton.Location = new System.Drawing.Point(482, 135);
+			this.FrontStopButton.Location = new System.Drawing.Point(381, 135);
 			this.FrontStopButton.Name = "FrontStopButton";
 			this.FrontStopButton.Size = new System.Drawing.Size(75, 23);
 			this.FrontStopButton.TabIndex = 2;
@@ -83,7 +85,7 @@
 			// 
 			// BackStopButton
 			// 
-			this.BackStopButton.Location = new System.Drawing.Point(482, 221);
+			this.BackStopButton.Location = new System.Drawing.Point(381, 221);
 			this.BackStopButton.Name = "BackStopButton";
 			this.BackStopButton.Size = new System.Drawing.Size(75, 23);
 			this.BackStopButton.TabIndex = 4;
@@ -144,11 +146,31 @@
 			this.closeButton.UseVisualStyleBackColor = true;
 			this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
 			// 
+			// frontPlayButton
+			// 
+			this.frontPlayButton.Location = new System.Drawing.Point(523, 135);
+			this.frontPlayButton.Name = "frontPlayButton";
+			this.frontPlayButton.Size = new System.Drawing.Size(75, 23);
+			this.frontPlayButton.TabIndex = 12;
+			this.frontPlayButton.Text = "Play";
+			this.frontPlayButton.UseVisualStyleBackColor = true;
+			// 
+			// backPlayButton
+			// 
+			this.backPlayButton.Location = new System.Drawing.Point(523, 220);
+			this.backPlayButton.Name = "backPlayButton";
+			this.backPlayButton.Size = new System.Drawing.Size(75, 23);
+			this.backPlayButton.TabIndex = 13;
+			this.backPlayButton.Text = "Play";
+			this.backPlayButton.UseVisualStyleBackColor = true;
+			// 
 			// SoundRecordForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.backPlayButton);
+			this.Controls.Add(this.frontPlayButton);
 			this.Controls.Add(this.closeButton);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -181,5 +203,7 @@
         private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button closeButton;
+		private System.Windows.Forms.Button frontPlayButton;
+		private System.Windows.Forms.Button backPlayButton;
 	}
 }
