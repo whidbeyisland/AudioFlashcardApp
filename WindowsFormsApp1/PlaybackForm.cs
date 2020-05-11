@@ -75,7 +75,6 @@ namespace WindowsFormsApp1
             var wavFileNames = wavFileNamesInit.OrderBy(a => Guid.NewGuid()).ToList();
 
             //for each row, play the front and then the back WAV files
-            string chain = "";
             var dummyFileReader = new AudioFileReader(String.Format(@"C:\Users\davis\Desktop\NAudio\dummy.wav"));
             var dummyFileReader2 = new AudioFileReader(String.Format(@"C:\Users\davis\Desktop\NAudio\dummy.wav"));
             var fileReaderConcat = dummyFileReader.FollowedBy(dummyFileReader2);
@@ -91,11 +90,6 @@ namespace WindowsFormsApp1
             {
                 if (cardRow[1].ToString() == deckToEdit2.ToString())
                 {
-                    //chain stuff is NOT necessary to functionality, just for testing
-                    chain += cardRow[2].ToString().Substring(0, 1);
-                    chain += cardRow[3].ToString().Substring(0, 1);
-                    chain += ",";
-
                     string newFrontGuid = cardRow[2].ToString();
                     string newBackGuid = cardRow[3].ToString();
                     var newFileReader = new AudioFileReader(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", newFrontGuid));
@@ -116,7 +110,6 @@ namespace WindowsFormsApp1
                     fileReaderList.Add(newFileReader2);
                 }
             }
-            testLabel2.Text = chain;
 
             waveOut.Init(fileReaderConcat);
             waveOut.Play();
