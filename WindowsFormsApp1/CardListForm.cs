@@ -248,8 +248,8 @@ namespace WindowsFormsApp1
                 Request _deleteRequest = new Request();
                 _deleteRequest.DeleteDimension = new DeleteDimensionRequest();
                 DimensionRange dimRange = new DimensionRange();
-                dimRange.StartIndex = indexToDelete + 2;
-                dimRange.EndIndex = indexToDelete + 3;
+                dimRange.StartIndex = indexToDelete + 1;
+                dimRange.EndIndex = indexToDelete + 2;
                 dimRange.Dimension = "ROWS";
                 _deleteRequest.DeleteDimension.Range = dimRange;
 
@@ -263,6 +263,8 @@ namespace WindowsFormsApp1
 
                 //FINALLY: tell the user everything was deleted
                 MessageBox.Show("Card deleted.");
+
+                UpdateCardList();
             }
         }
 

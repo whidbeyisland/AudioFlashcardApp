@@ -14,6 +14,8 @@ using System.IO;
 
 using Google.Apis.Storage.v1.Data;
 using Google.Cloud.Storage.V1;
+using System.Linq;
+using Google.Apis.Sheets.v4.Data;
 
 namespace WindowsFormsApp1
 {
@@ -327,6 +329,109 @@ namespace WindowsFormsApp1
         private void deckNameBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void deleteDeckButton_Click(object sender, EventArgs e)
+        {
+            //first queue a popup asking if they're sure
+
+            DialogResult result1 = MessageBox.Show("Are you sure you want to delete this deck?",
+            "Important Question",
+            MessageBoxButtons.YesNo);
+            if (result1 == DialogResult.Yes)
+            {
+                //initialize sound file guids and row index to be handled later
+                int indexToDelete = -1;
+
+                //general request stuff
+                UserCredential credential;
+
+                using (var stream =
+                    new FileStream("credentials.json", FileMode.Open, FileAccess.ReadWrite))
+                {
+                    // The file token.json stores the user's access and refresh tokens, and is created
+                    // automatically when the authorization flow completes for the first time.
+                    string credPath = "token.json";
+                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.Load(stream).Secrets,
+                        Scopes,
+                        "user",
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true)).Result;
+                    Console.WriteLine("Credential file saved to: " + credPath);
+                }
+
+                // Create Google Sheets API service.
+                var service = new SheetsService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = ApplicationName,
+                });
+
+                // Define request parameters.
+                String spreadsheetId = "1mo43FA8GI2foWplLAxkVwa1JiQEWzZcvvceOJ-9UDfM";
+                String range = "A2:G101";
+                SpreadsheetsResource.ValuesResource.GetRequest request =
+                        service.Spreadsheets.Values.Get(spreadsheetId, range);
+
+                // print data from sheet
+                try
+                {
+                    Data.ValueRange response = request.Execute();
+                    IList<IList<System.Object>> values = response.Values;
+                    response.MajorDimension = "COLUMNS";
+                    if (values != null && values.Count > 0)
+                    {
+                        List<string[]> hiddenDeckList2 = new List<string[]>();
+                        foreach (var row in values)
+                        {
+                            //update datagrid with what it finds
+                            if (row.Count > 0)
+                            {
+                                hiddenDeckList2.Add(new string[] { row[0].ToString(), row[1].ToString(), row[4].ToString(), row[5].ToString() });
+                            }
+                        }
+
+                        //FIRST: get the guids of the sound files to delete
+                        for (int i = 0; i < hiddenDeckList2.Count; i++)
+                        {
+                            if (hiddenDeckList2.ElementAt(i)[0] == deckToEdit2)
+                            {
+                                indexToDelete = i;
+                            }
+                        }
+                        MessageBox.Show(deckToEdit2);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+                }
+                catch
+                {
+
+                }
+
+                //SECOND: delete that record in DeckEntries
+                List<Request> deleteRequestsList = new List<Request>();
+                BatchUpdateSpreadsheetRequest _batchUpdateSpreadsheetRequest = new BatchUpdateSpreadsheetRequest();
+                Request _deleteRequest = new Request();
+                _deleteRequest.DeleteDimension = new DeleteDimensionRequest();
+                DimensionRange dimRange = new DimensionRange();
+                dimRange.StartIndex = indexToDelete + 1;
+                dimRange.EndIndex = indexToDelete + 2;
+                dimRange.Dimension = "ROWS";
+                _deleteRequest.DeleteDimension.Range = dimRange;
+
+                deleteRequestsList.Add(_deleteRequest);
+                _batchUpdateSpreadsheetRequest.Requests = deleteRequestsList;
+                service.Spreadsheets.BatchUpdate(_batchUpdateSpreadsheetRequest, spreadsheetId).Execute();
+
+                //FINALLY: tell the user everything was deleted
+                MessageBox.Show("Deck deleted.");
+
+                UpdateDeckList();
+            }
         }
     }
 }
