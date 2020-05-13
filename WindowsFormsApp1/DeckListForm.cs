@@ -16,6 +16,7 @@ using Google.Apis.Storage.v1.Data;
 using Google.Cloud.Storage.V1;
 using System.Linq;
 using Google.Apis.Sheets.v4.Data;
+using System.Windows.Forms.VisualStyles;
 
 namespace WindowsFormsApp1
 {
@@ -439,7 +440,7 @@ namespace WindowsFormsApp1
                 //initialize sound file guids and row index to be handled later
                 string frontGuidToDelete = "";
                 string backGuidToDelete = "";
-                int indexToDelete2 = -1;
+                List<int> indicesToDelete = new List<int>();
 
                 // Use Google Sheets API service, credentials, etc. from earlier in this method
 
@@ -475,7 +476,7 @@ namespace WindowsFormsApp1
                             backGuidToDelete = hiddenCardList2.ElementAt(i)[2];
 
                             //UNFINISHED: THIS SHOULD BE DONE MULTIPLE TIMES
-                            indexToDelete = i;
+                            indicesToDelete.Add(i);
                         }
                     }
                     MessageBox.Show(frontGuidToDelete + "..." + backGuidToDelete);
@@ -489,15 +490,21 @@ namespace WindowsFormsApp1
                 //SECOND: delete that record in CardEntries
                 List<Request> deleteRequestsList2 = new List<Request>();
                 BatchUpdateSpreadsheetRequest _batchUpdateSpreadsheetRequest2 = new BatchUpdateSpreadsheetRequest();
-                Request _deleteRequest2 = new Request();
-                _deleteRequest2.DeleteDimension = new DeleteDimensionRequest();
-                DimensionRange dimRange2 = new DimensionRange();
-                dimRange2.StartIndex = indexToDelete2 + 1;
-                dimRange2.EndIndex = indexToDelete2 + 2;
-                dimRange2.Dimension = "ROWS";
-                _deleteRequest2.DeleteDimension.Range = dimRange2;
 
-                deleteRequestsList2.Add(_deleteRequest2);
+                //add each row that should be deleted to the list of delete requests
+                foreach(int indexToDelete2 in indicesToDelete)
+                {
+                    Request _deleteRequest2 = new Request();
+                    _deleteRequest2.DeleteDimension = new DeleteDimensionRequest();
+                    DimensionRange dimRange2 = new DimensionRange();
+                    dimRange2.StartIndex = indexToDelete2 + 1;
+                    dimRange2.EndIndex = indexToDelete2 + 2;
+                    dimRange2.Dimension = "ROWS";
+                    _deleteRequest2.DeleteDimension.Range = dimRange2;
+
+                    deleteRequestsList2.Add(_deleteRequest2);
+                }
+                
                 _batchUpdateSpreadsheetRequest2.Requests = deleteRequestsList2;
                 service.Spreadsheets.BatchUpdate(_batchUpdateSpreadsheetRequest2, spreadsheetId2).Execute();
 
