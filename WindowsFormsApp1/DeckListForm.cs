@@ -437,9 +437,9 @@ namespace WindowsFormsApp1
                 // Delete all cards associated with deck, and their files
                 // ---------------------------------------------------------
 
-                //initialize sound file guids and row index to be handled later
-                string frontGuidToDelete = "";
-                string backGuidToDelete = "";
+                //initialize sound file guids and row indices to be handled later
+                List<string> frontGuidsToDelete = new List<string>();
+                List<string> backGuidsToDelete = new List<string>();
                 List<int> indicesToDelete = new List<int>();
 
                 // Use Google Sheets API service, credentials, etc. from earlier in this method
@@ -472,14 +472,12 @@ namespace WindowsFormsApp1
                     {
                         if (hiddenCardList2.ElementAt(i)[2] == deckToEdit2)
                         {
-                            frontGuidToDelete = hiddenCardList2.ElementAt(i)[1];
-                            backGuidToDelete = hiddenCardList2.ElementAt(i)[2];
+                            frontGuidsToDelete.Add(hiddenCardList2.ElementAt(i)[1]);
+                            backGuidsToDelete.Add(hiddenCardList2.ElementAt(i)[2]);
 
-                            //UNFINISHED: THIS SHOULD BE DONE MULTIPLE TIMES
                             indicesToDelete.Add(i);
                         }
                     }
-                    MessageBox.Show(frontGuidToDelete + "..." + backGuidToDelete);
 
                 }
                 else
@@ -509,8 +507,14 @@ namespace WindowsFormsApp1
                 service.Spreadsheets.BatchUpdate(_batchUpdateSpreadsheetRequest2, spreadsheetId2).Execute();
 
                 //THIRD: delete the files in the user's folder with the Guids frontGuidToDelete and backGuidToDelete
-                File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", frontGuidToDelete));
-                File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", backGuidToDelete));
+                foreach(string frontGuidToDelete in frontGuidsToDelete)
+                {
+                    File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", frontGuidToDelete));
+                }
+                foreach (string backGuidToDelete in backGuidsToDelete)
+                {
+                    File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", backGuidToDelete));
+                }
 
             }
         }
