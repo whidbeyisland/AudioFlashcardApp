@@ -431,6 +431,80 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Deck deleted.");
 
                 UpdateDeckList();
+
+                // ---------------------------------------------------------
+                // Delete all cards associated with deck, and their files
+                // ---------------------------------------------------------
+
+                //initialize sound file guids and row index to be handled later
+                string frontGuidToDelete = "";
+                string backGuidToDelete = "";
+                int indexToDelete2 = -1;
+
+                // Use Google Sheets API service, credentials, etc. from earlier in this method
+
+                // Define request parameters.
+                String spreadsheetId2 = "18oiwCBXXA3vNm-1ugq26MJPN9lmJadGshMOfXu17tS4";
+                String range2 = "A2:G101";
+                SpreadsheetsResource.ValuesResource.GetRequest request2 =
+                        service.Spreadsheets.Values.Get(spreadsheetId2, range2);
+
+                // print data from sheet
+                Data.ValueRange response2 = request.Execute();
+                IList<IList<System.Object>> values2 = response2.Values;
+                response2.MajorDimension = "COLUMNS";
+                if (values2 != null && values2.Count > 0)
+                {
+                    List<string[]> hiddenCardList2 = new List<string[]>();
+
+                    foreach (var row in values2)
+                    {
+                        //update datagrid with what it finds
+                        if (row[2].ToString() == deckToEdit2)
+                        {
+                            hiddenCardList2.Add(new string[] { row[0].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString() });
+                        }
+                    }
+
+                    //FIRST: get the guids of the sound files to delete
+                    for (int i = 0; i < hiddenCardList2.Count; i++)
+                    {
+                        if (hiddenCardList2.ElementAt(i)[2] == deckToEdit2)
+                        {
+                            frontGuidToDelete = hiddenCardList2.ElementAt(i)[1];
+                            backGuidToDelete = hiddenCardList2.ElementAt(i)[2];
+
+                            //UNFINISHED: THIS SHOULD BE DONE MULTIPLE TIMES
+                            indexToDelete = i;
+                        }
+                    }
+                    MessageBox.Show(frontGuidToDelete + "..." + backGuidToDelete);
+
+                }
+                else
+                {
+                    Console.WriteLine("No data found.");
+                }
+
+                //SECOND: delete that record in CardEntries
+                List<Request> deleteRequestsList2 = new List<Request>();
+                BatchUpdateSpreadsheetRequest _batchUpdateSpreadsheetRequest2 = new BatchUpdateSpreadsheetRequest();
+                Request _deleteRequest2 = new Request();
+                _deleteRequest2.DeleteDimension = new DeleteDimensionRequest();
+                DimensionRange dimRange2 = new DimensionRange();
+                dimRange2.StartIndex = indexToDelete2 + 1;
+                dimRange2.EndIndex = indexToDelete2 + 2;
+                dimRange2.Dimension = "ROWS";
+                _deleteRequest2.DeleteDimension.Range = dimRange2;
+
+                deleteRequestsList2.Add(_deleteRequest2);
+                _batchUpdateSpreadsheetRequest2.Requests = deleteRequestsList2;
+                service.Spreadsheets.BatchUpdate(_batchUpdateSpreadsheetRequest2, spreadsheetId2).Execute();
+
+                //THIRD: delete the files in the user's folder with the Guids frontGuidToDelete and backGuidToDelete
+                File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", frontGuidToDelete));
+                File.Delete(String.Format(@"C:\Users\davis\Desktop\NAudio\{0}.wav", backGuidToDelete));
+
             }
         }
     }
