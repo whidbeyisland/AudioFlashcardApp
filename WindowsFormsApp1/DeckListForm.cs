@@ -297,34 +297,7 @@ namespace WindowsFormsApp1
         {
             string newDeckName = deckNameBox.Text;
 
-            SheetsService sheetsService = new SheetsService(new BaseClientService.Initializer
-            {
-                HttpClientInitializer = GetCredential(),
-                ApplicationName = "Google-SheetsSample/0.1",
-            });
-
-            // The ID of the spreadsheet to update.
-            string spreadsheetId = "1mo43FA8GI2foWplLAxkVwa1JiQEWzZcvvceOJ-9UDfM";
-
-            // The A1 notation of a range to search for a logical table of data.
-            // Values will be appended after the last row of the table.
-            string range = "A2:G101";  // TODO: Update placeholder value.
-
-            // How the input data should be interpreted.
-            SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum valueInputOption = (SpreadsheetsResource.ValuesResource.UpdateRequest.ValueInputOptionEnum)2;  // TODO: Update placeholder value.
-
-            // DOES NOT CORRECTLY UPDATE ROW
-            // TODO: Assign values to desired properties of `requestBody`:
-            Data.ValueRange requestBody = new Data.ValueRange();
-            var oblist = new List<object>() { Guid.NewGuid(), newDeckName, 0, 0, DateTime.Now, DateTime.Now }; //, "Default2", 1, 4
-            requestBody.Values = new List<IList<object>> { oblist };
-            requestBody.MajorDimension = "ROWS";
-
-            SpreadsheetsResource.ValuesResource.UpdateRequest request = sheetsService.Spreadsheets.Values.Update(requestBody, spreadsheetId, range);
-            request.ValueInputOption = valueInputOption;
-
-            // To execute asynchronously in an async method, replace `request.Execute()` as shown:
-            Data.UpdateValuesResponse response = request.Execute();
+            //just do a delete request and then an add request?
         }
 
         private void deckNameBox_TextChanged(object sender, EventArgs e)
@@ -335,13 +308,12 @@ namespace WindowsFormsApp1
         private void deleteDeckButton_Click(object sender, EventArgs e)
         {
             //first queue a popup asking if they're sure
-
             DialogResult result1 = MessageBox.Show("Are you sure you want to delete this deck?",
             "Important Question",
             MessageBoxButtons.YesNo);
             if (result1 == DialogResult.Yes)
             {
-                //initialize sound file guids and row index to be handled later
+                //initialize deck row index to be handled later
                 int indexToDelete = -1;
 
                 //general request stuff
