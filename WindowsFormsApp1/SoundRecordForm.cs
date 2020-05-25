@@ -252,5 +252,15 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
+
+        private void frontPlayButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backPlayButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

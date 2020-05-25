@@ -274,7 +274,7 @@ namespace WindowsFormsApp1
 
         private void EditCardButton_Click(object sender, EventArgs e)
         {
-            CardEditForm form6 = new CardEditForm();
+            CardEditForm form6 = new CardEditForm(cardToEdit2);
             form6.ShowDialog();
         }
     }

@@ -33,14 +33,14 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.cardSaveButton = new System.Windows.Forms.Button();
+			this.SaveCardButton = new System.Windows.Forms.Button();
 			this.cardDiscardButton = new System.Windows.Forms.Button();
-			this.frontRecordButton = new System.Windows.Forms.Button();
-			this.frontStopButton = new System.Windows.Forms.Button();
-			this.frontPlayButton = new System.Windows.Forms.Button();
-			this.backRecordButton = new System.Windows.Forms.Button();
-			this.backStopButton = new System.Windows.Forms.Button();
-			this.backPlayButton = new System.Windows.Forms.Button();
+			this.FrontRecordButton = new System.Windows.Forms.Button();
+			this.FrontStopButton = new System.Windows.Forms.Button();
+			this.FrontPlayButton = new System.Windows.Forms.Button();
+			this.BackRecordButton = new System.Windows.Forms.Button();
+			this.BackStopButton = new System.Windows.Forms.Button();
+			this.BackPlayButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -86,92 +86,97 @@
 			this.textBox1.Size = new System.Drawing.Size(100, 22);
 			this.textBox1.TabIndex = 4;
 			// 
-			// cardSaveButton
+			// SaveCardButton
 			// 
-			this.cardSaveButton.Location = new System.Drawing.Point(302, 364);
-			this.cardSaveButton.Name = "cardSaveButton";
-			this.cardSaveButton.Size = new System.Drawing.Size(75, 23);
-			this.cardSaveButton.TabIndex = 5;
-			this.cardSaveButton.Text = "Save";
-			this.cardSaveButton.UseVisualStyleBackColor = true;
+			this.SaveCardButton.Location = new System.Drawing.Point(297, 364);
+			this.SaveCardButton.Name = "SaveCardButton";
+			this.SaveCardButton.Size = new System.Drawing.Size(75, 23);
+			this.SaveCardButton.TabIndex = 5;
+			this.SaveCardButton.Text = "Save";
+			this.SaveCardButton.UseVisualStyleBackColor = true;
+			this.SaveCardButton.Click += new System.EventHandler(this.SaveCardButton_Click);
 			// 
 			// cardDiscardButton
 			// 
-			this.cardDiscardButton.Location = new System.Drawing.Point(440, 364);
+			this.cardDiscardButton.Location = new System.Drawing.Point(433, 364);
 			this.cardDiscardButton.Name = "cardDiscardButton";
-			this.cardDiscardButton.Size = new System.Drawing.Size(135, 23);
+			this.cardDiscardButton.Size = new System.Drawing.Size(90, 23);
 			this.cardDiscardButton.TabIndex = 6;
-			this.cardDiscardButton.Text = "Discard changes";
+			this.cardDiscardButton.Text = "Cancel";
 			this.cardDiscardButton.UseVisualStyleBackColor = true;
 			this.cardDiscardButton.Click += new System.EventHandler(this.cardDiscardButton_Click);
 			// 
-			// frontRecordButton
+			// FrontRecordButton
 			// 
-			this.frontRecordButton.Location = new System.Drawing.Point(275, 124);
-			this.frontRecordButton.Name = "frontRecordButton";
-			this.frontRecordButton.Size = new System.Drawing.Size(75, 23);
-			this.frontRecordButton.TabIndex = 7;
-			this.frontRecordButton.Text = "Record";
-			this.frontRecordButton.UseVisualStyleBackColor = true;
+			this.FrontRecordButton.Location = new System.Drawing.Point(275, 124);
+			this.FrontRecordButton.Name = "FrontRecordButton";
+			this.FrontRecordButton.Size = new System.Drawing.Size(75, 23);
+			this.FrontRecordButton.TabIndex = 7;
+			this.FrontRecordButton.Text = "Record";
+			this.FrontRecordButton.UseVisualStyleBackColor = true;
+			this.FrontRecordButton.Click += new System.EventHandler(this.frontRecordButton_Click);
 			// 
-			// frontStopButton
+			// FrontStopButton
 			// 
-			this.frontStopButton.Location = new System.Drawing.Point(418, 123);
-			this.frontStopButton.Name = "frontStopButton";
-			this.frontStopButton.Size = new System.Drawing.Size(75, 23);
-			this.frontStopButton.TabIndex = 8;
-			this.frontStopButton.Text = "Stop";
-			this.frontStopButton.UseVisualStyleBackColor = true;
+			this.FrontStopButton.Location = new System.Drawing.Point(418, 123);
+			this.FrontStopButton.Name = "FrontStopButton";
+			this.FrontStopButton.Size = new System.Drawing.Size(75, 23);
+			this.FrontStopButton.TabIndex = 8;
+			this.FrontStopButton.Text = "Stop";
+			this.FrontStopButton.UseVisualStyleBackColor = true;
+			this.FrontStopButton.Click += new System.EventHandler(this.FrontStopButton_Click);
 			// 
-			// frontPlayButton
+			// FrontPlayButton
 			// 
-			this.frontPlayButton.Location = new System.Drawing.Point(569, 124);
-			this.frontPlayButton.Name = "frontPlayButton";
-			this.frontPlayButton.Size = new System.Drawing.Size(75, 23);
-			this.frontPlayButton.TabIndex = 9;
-			this.frontPlayButton.Text = "Play";
-			this.frontPlayButton.UseVisualStyleBackColor = true;
+			this.FrontPlayButton.Location = new System.Drawing.Point(569, 124);
+			this.FrontPlayButton.Name = "FrontPlayButton";
+			this.FrontPlayButton.Size = new System.Drawing.Size(75, 23);
+			this.FrontPlayButton.TabIndex = 9;
+			this.FrontPlayButton.Text = "Play";
+			this.FrontPlayButton.UseVisualStyleBackColor = true;
 			// 
-			// backRecordButton
+			// BackRecordButton
 			// 
-			this.backRecordButton.Location = new System.Drawing.Point(275, 225);
-			this.backRecordButton.Name = "backRecordButton";
-			this.backRecordButton.Size = new System.Drawing.Size(75, 23);
-			this.backRecordButton.TabIndex = 10;
-			this.backRecordButton.Text = "Record";
-			this.backRecordButton.UseVisualStyleBackColor = true;
+			this.BackRecordButton.Location = new System.Drawing.Point(275, 225);
+			this.BackRecordButton.Name = "BackRecordButton";
+			this.BackRecordButton.Size = new System.Drawing.Size(75, 23);
+			this.BackRecordButton.TabIndex = 10;
+			this.BackRecordButton.Text = "Record";
+			this.BackRecordButton.UseVisualStyleBackColor = true;
+			this.BackRecordButton.Click += new System.EventHandler(this.BackRecordButton_Click);
 			// 
-			// backStopButton
+			// BackStopButton
 			// 
-			this.backStopButton.Location = new System.Drawing.Point(418, 225);
-			this.backStopButton.Name = "backStopButton";
-			this.backStopButton.Size = new System.Drawing.Size(75, 23);
-			this.backStopButton.TabIndex = 11;
-			this.backStopButton.Text = "Stop";
-			this.backStopButton.UseVisualStyleBackColor = true;
+			this.BackStopButton.Location = new System.Drawing.Point(418, 225);
+			this.BackStopButton.Name = "BackStopButton";
+			this.BackStopButton.Size = new System.Drawing.Size(75, 23);
+			this.BackStopButton.TabIndex = 11;
+			this.BackStopButton.Text = "Stop";
+			this.BackStopButton.UseVisualStyleBackColor = true;
+			this.BackStopButton.Click += new System.EventHandler(this.BackStopButton_Click);
 			// 
-			// backPlayButton
+			// BackPlayButton
 			// 
-			this.backPlayButton.Location = new System.Drawing.Point(569, 225);
-			this.backPlayButton.Name = "backPlayButton";
-			this.backPlayButton.Size = new System.Drawing.Size(75, 23);
-			this.backPlayButton.TabIndex = 12;
-			this.backPlayButton.Text = "Play";
-			this.backPlayButton.UseVisualStyleBackColor = true;
+			this.BackPlayButton.Location = new System.Drawing.Point(569, 225);
+			this.BackPlayButton.Name = "BackPlayButton";
+			this.BackPlayButton.Size = new System.Drawing.Size(75, 23);
+			this.BackPlayButton.TabIndex = 12;
+			this.BackPlayButton.Text = "Play";
+			this.BackPlayButton.UseVisualStyleBackColor = true;
 			// 
 			// CardEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.backPlayButton);
-			this.Controls.Add(this.backStopButton);
-			this.Controls.Add(this.backRecordButton);
-			this.Controls.Add(this.frontPlayButton);
-			this.Controls.Add(this.frontStopButton);
-			this.Controls.Add(this.frontRecordButton);
+			this.Controls.Add(this.BackPlayButton);
+			this.Controls.Add(this.BackStopButton);
+			this.Controls.Add(this.BackRecordButton);
+			this.Controls.Add(this.FrontPlayButton);
+			this.Controls.Add(this.FrontStopButton);
+			this.Controls.Add(this.FrontRecordButton);
 			this.Controls.Add(this.cardDiscardButton);
-			this.Controls.Add(this.cardSaveButton);
+			this.Controls.Add(this.SaveCardButton);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -192,13 +197,13 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Button cardSaveButton;
+		private System.Windows.Forms.Button SaveCardButton;
 		private System.Windows.Forms.Button cardDiscardButton;
-		private System.Windows.Forms.Button frontRecordButton;
-		private System.Windows.Forms.Button frontStopButton;
-		private System.Windows.Forms.Button frontPlayButton;
-		private System.Windows.Forms.Button backRecordButton;
-		private System.Windows.Forms.Button backStopButton;
-		private System.Windows.Forms.Button backPlayButton;
+		private System.Windows.Forms.Button FrontRecordButton;
+		private System.Windows.Forms.Button FrontStopButton;
+		private System.Windows.Forms.Button FrontPlayButton;
+		private System.Windows.Forms.Button BackRecordButton;
+		private System.Windows.Forms.Button BackStopButton;
+		private System.Windows.Forms.Button BackPlayButton;
 	}
 }

@@ -154,6 +154,7 @@
 			this.frontPlayButton.TabIndex = 12;
 			this.frontPlayButton.Text = "Play";
 			this.frontPlayButton.UseVisualStyleBackColor = true;
+			this.frontPlayButton.Click += new System.EventHandler(this.frontPlayButton_Click);
 			// 
 			// backPlayButton
 			// 
@@ -163,6 +164,7 @@
 			this.backPlayButton.TabIndex = 13;
 			this.backPlayButton.Text = "Play";
 			this.backPlayButton.UseVisualStyleBackColor = true;
+			this.backPlayButton.Click += new System.EventHandler(this.backPlayButton_Click);
 			// 
 			// SoundRecordForm
 			// 
