@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
     {
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
         static string ApplicationName = "Flashchords";
-
+        string cardToEdit2Name;
         string deckToEdit2;
         string cardToEdit2;
 
@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
         {
             deckToEdit2 = "";
             cardToEdit2 = "";
-            //cardToEdit2Name = "";
+            cardToEdit2Name = "";
             InitializeComponent();
             this.Text = "Cards";
             deckToEdit2 = deckToEdit;
@@ -270,11 +270,12 @@ namespace WindowsFormsApp1
             DeleteCardButton.Enabled = true;
 
             cardToEdit2 = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            cardToEdit2Name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
         private void EditCardButton_Click(object sender, EventArgs e)
         {
-            CardEditForm form6 = new CardEditForm(cardToEdit2);
+            CardEditForm form6 = new CardEditForm(cardToEdit2, cardToEdit2Name, deckToEdit2);
             form6.ShowDialog();
         }
     }
